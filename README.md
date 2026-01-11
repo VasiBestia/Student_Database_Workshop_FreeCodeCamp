@@ -96,6 +96,36 @@ COURSE_ID=$($PSQL "SELECT course_id FROM courses WHERE course='$COURSE'")
 INSERT_MAJORS_COURSES_RESULT=$($PSQL "INSERT INTO majors_courses(major_id, course_id) VALUES($MAJOR_ID, $COURSE_ID)")
 ```
 ---
+## 📊 Part 2: Student Database Analysis
+
+This section covers the second phase of the FreeCodeCamp workshop, which focuses on querying, analyzing, and extracting insights from the `students` database created in Part 1.
+
+### 📂 Script: `student_info.sh`
+The core of this phase is the bash script `student_info.sh`. It connects to the PostgreSQL database and executes a series of queries to generate reports on student performance, course enrollment, and major distribution.
+
+### 🧠 Key SQL Concepts Implemented
+The script demonstrates mastery of intermediate to advanced SQL techniques, including:
+
+* **Advanced Filtering:** Combining logic with `AND`/`OR`, checking for `NULL` values, and using comparison operators (`<`, `>`, `=`).
+* **Pattern Matching:** Utilizing `LIKE` and `ILIKE` (case-insensitive) with wildcards:
+    * `%`: Matches any sequence of characters.
+    * `_`: Matches a single character.
+* **Aggregations & Math:** Calculating averages (`AVG`), counting records (`COUNT`), and formatting numbers using `ROUND`.
+* **Grouping Data:** Using `GROUP BY` to segment data and `HAVING` to filter those groups based on aggregate conditions.
+* **Complex Joins:**
+    * **`INNER JOIN`**: To find matching records across tables.
+    * **`LEFT` / `RIGHT JOIN`**: To identify students without majors or courses without students.
+    * **`FULL JOIN`**: To retrieve all records from both tables, matching where possible.
+
+
+
+### 🏃‍♂️ How to Run
+To execute the analysis script and view the generated report, run the following command in your terminal:
+
+```bash
+./student_info.sh
+```
+---
 👨‍💻 Author
 Vasilescu Alexandru Gabriel
 
